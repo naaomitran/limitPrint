@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/onFoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="?attr/actionBarSize">
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:background="?android:attr/windowBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
+
+    <fragment
+        android:id="@+id/nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:defaultNavHost="true"
+        app:layout_constraintBottom_toTopOf="@id/nav_view"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:navGraph="@navigation/mobile_navigation" />
+
+    <Button
+        android:id="@+id/start"
+        android:layout_width="128dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="29dp"
+        android:layout_marginLeft="29dp"
+        android:layout_marginTop="412dp"
+        android:layout_marginEnd="254dp"
+        android:layout_marginRight="254dp"
+        android:layout_marginBottom="163dp"
+        android:text="start"
+        app:backgroundTint="#009688"
+        app:layout_constraintBottom_toBottomOf="@+id/nav_host_fragment"
+        app:layout_constraintEnd_toEndOf="@+id/nav_host_fragment"
+        app:layout_constraintStart_toStartOf="@+id/nav_host_fragment"
+        app:layout_constraintTop_toTopOf="@+id/nav_host_fragment" />
+
+    <Button
+        android:id="@+id/onfoot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="156dp"
+        android:layout_marginLeft="156dp"
+        android:layout_marginTop="541dp"
+        android:text="on foot"
+        app:backgroundTint="#8EDF91"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/nav_host_fragment" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="0dp"
+        android:layout_height="77dp"
+        android:layout_marginStart="152dp"
+        android:layout_marginLeft="152dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="153dp"
+        android:layout_marginRight="153dp"
+        android:layout_marginBottom="572dp"
+        android:text="green level"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColorHighlight="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/nav_host_fragment"
+        app:layout_constraintEnd_toEndOf="@+id/nav_host_fragment"
+        app:layout_constraintStart_toStartOf="@+id/nav_host_fragment"
+        app:layout_constraintTop_toTopOf="@+id/nav_host_fragment" />
+
+    <Button xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/button_end"
+        android:layout_width="128dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="254dp"
+        android:layout_marginLeft="254dp"
+        android:layout_marginTop="413dp"
+        android:layout_marginEnd="29dp"
+        android:layout_marginRight="29dp"
+        android:layout_marginBottom="162dp"
+        android:text="end"
+        android:onClick="endTravel"
+
+        app:backgroundTint="#009688"
+        app:layout_constraintBottom_toBottomOf="@+id/nav_host_fragment"
+        app:layout_constraintEnd_toEndOf="@+id/nav_host_fragment"
+        app:layout_constraintStart_toStartOf="@+id/nav_host_fragment"
+        app:layout_constraintTop_toTopOf="@+id/nav_host_fragment" />/>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="334dp"
+        android:layout_height="37dp"
+        android:progressDrawable="@drawable/ic_launcher_background"
+        app:layout_constraintBottom_toTopOf="@+id/onfoot"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/nav_host_fragment" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

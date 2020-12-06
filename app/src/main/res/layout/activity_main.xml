@@ -6,70 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#C4E8C5"
-    android:paddingTop="?attr/actionBarSize"><![CDATA[
-
-
-
-
-
-
-
-    />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    ]]>
-
+    android:paddingTop="?attr/actionBarSize">
     <ImageView
         android:id="@+id/imageView12"
         android:layout_width="352dp"
@@ -81,7 +18,7 @@
         app:srcCompat="@drawable/counter" />
 
     <Button
-        android:id="@+id/startEnd"
+        android:id="@+id/start"
         android:layout_width="128dp"
         android:layout_height="100dp"
         android:onClick="startTravel"
@@ -91,17 +28,26 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
+<<<<<<< HEAD
         app:layout_constraintTop_toBottomOf="@+id/progressBar" />
+=======
+        tools:layout_editor_absoluteY="442dp" />
+>>>>>>> 99f7b3c1f3cb7c4acf9f4cea6cba9476172f9510
 
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="343dp"
         android:layout_height="47dp"
+<<<<<<< HEAD
         android:layout_marginBottom="83dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView12"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+=======
+        tools:layout_editor_absoluteX="38dp"
+        tools:layout_editor_absoluteY="267dp">
+>>>>>>> 99f7b3c1f3cb7c4acf9f4cea6cba9476172f9510
 
     <ImageView
         android:id="@+id/imageView2"

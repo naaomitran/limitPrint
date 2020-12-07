@@ -5,6 +5,7 @@ import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
@@ -51,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
         button = (Button) findViewById(R.id.start);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
-        progressBar.setMax(10);
+        progressBar.setMax(35000);
         progressBar.setProgress(0);
 
         locationListener = locationListenerInit();
@@ -60,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
         createNotificationChannels();
         notificationManagerCompat = NotificationManagerCompat.from(this);
+        startService(new Intent(this, MyService.class));
     }
 
     private void createNotificationChannels() {
@@ -92,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
                         .setContentText("You have driven over 50% of a sustainable carbon footprint!")
                         .setPriority(NotificationCompat.PRIORITY_HIGH)
                         .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                        .setStyle(new NotificationCompat.BigTextStyle().bigText("You have driven over 50% of a sustainable carbon footprint!"))
                         .build();
                 notificationManagerCompat.notify(1,notification);
             }
@@ -103,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
                         .setContentText("You have driven over 75% of a sustainable carbon footprint! Try and minimize your driving time and maximize other carbon efficient methods!")
                         .setPriority(NotificationCompat.PRIORITY_HIGH)
                         .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                        .setStyle(new NotificationCompat.BigTextStyle().bigText("You have driven over 75% of a sustainable carbon footprint! Try and minimize your driving time and maximize other carbon efficient methods!"))
                         .build();
                 notificationManagerCompat.notify(2,notification);
             }
@@ -114,6 +118,7 @@ public class MainActivity extends AppCompatActivity {
                         .setContentText("You have driven over 100% of a sustainable carbon footprint! Try and minimize your driving time and maximize other carbon efficient methods!")
                         .setPriority(NotificationCompat.PRIORITY_HIGH)
                         .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                        .setStyle(new NotificationCompat.BigTextStyle().bigText("You have driven over 100% of a sustainable carbon footprint! Try and minimize your driving time and maximize other carbon efficient methods!"))
                         .build();
                 notificationManagerCompat.notify(3,notification);
             }
@@ -128,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
                 if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                     ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
                 }
-                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 0, locationListener);
+                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 10000, 0, locationListener);
             } else {
                 button.setText("start");
                 locationManager.removeUpdates(locationListener);

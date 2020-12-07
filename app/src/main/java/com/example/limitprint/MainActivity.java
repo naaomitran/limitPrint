@@ -27,6 +27,9 @@ import androidx.core.content.ContextCompat;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import java.util.Calendar;
+
+
 public class MainActivity extends AppCompatActivity {
     private Button button;
     private ProgressBar progressBar;
@@ -38,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
     private LocationListener locationListener;
     private boolean[] notifArray = {false, false, false};
     private NotificationManagerCompat notificationManagerCompat;
+    private int day = 0;
+    private Calendar calendar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +66,6 @@ public class MainActivity extends AppCompatActivity {
 
         createNotificationChannels();
         notificationManagerCompat = NotificationManagerCompat.from(this);
-        startService(new Intent(this, MyService.class));
     }
 
     private void createNotificationChannels() {
@@ -80,6 +84,13 @@ public class MainActivity extends AppCompatActivity {
 
     private LocationListener locationListenerInit() {
         return location -> {
+            calendar = Calendar.getInstance();
+            if (day != calendar.get(Calendar.DAY_OF_MONTH)) {
+                day = calendar.get(Calendar.DAY_OF_MONTH);
+                sum = 0;
+                progressBar.setProgress((int) sum);
+                lastLocation = null;
+            }
             if (lastLocation != null) {
                 Location.distanceBetween(lastLocation.getLatitude(), lastLocation.getLongitude(), location.getLatitude(), location.getLongitude(), tempDistance);
                 sum += tempDistance[0];

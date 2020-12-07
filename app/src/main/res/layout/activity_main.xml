@@ -23,12 +23,11 @@
         android:id="@+id/start"
         android:layout_width="128dp"
         android:layout_height="100dp"
-        android:layout_marginBottom="84dp"
+        android:layout_marginBottom="92dp"
         android:text="@string/start"
         app:backgroundTint="#009688"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ProgressBar
